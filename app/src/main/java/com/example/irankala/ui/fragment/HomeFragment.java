@@ -2,6 +2,7 @@ package com.example.irankala.ui.fragment;
 
 import android.os.Bundle;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,9 +13,13 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.irankala.R;
+import com.example.irankala.data.repository.Repository;
 import com.example.irankala.databinding.FragmentHomeBinding;
+import com.example.irankala.model.Product;
 
 public class HomeFragment extends Fragment {
+
+    public static final String TAG = "HomeFragment";
 
     public static HomeFragment newInstance() {
         HomeFragment fragment = new HomeFragment();
@@ -22,6 +27,8 @@ public class HomeFragment extends Fragment {
         fragment.setArguments(args);
         return fragment;
     }
+
+    Repository mRepository=Repository.getInstance(getContext());
 
     FragmentHomeBinding mBinding;
 
@@ -37,6 +44,10 @@ public class HomeFragment extends Fragment {
 
         mBinding.containerRecyclers.addView(createRecycler());
         mBinding.containerRecyclers.addView(createRecycler());
+
+        for (Product pr:mRepository.getProduct()) {
+            Log.e(TAG,pr.getName());
+        }
 
         return mBinding.getRoot();
     }
