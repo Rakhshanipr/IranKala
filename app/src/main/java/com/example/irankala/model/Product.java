@@ -12,11 +12,12 @@ public class Product {
     private String mAverageRating;
     private String mRatingCount;
     private List<ProductImage> mImages;
+    private List<ProductCategory> mCategories;
 
     public Product() {
     }
 
-    public Product(String name, String id, String description, String price, String regularPrice, String averageRating, String ratingCount, List<ProductImage> images) {
+    public Product(String name, String id, String description, String price, String regularPrice, String averageRating, String ratingCount, List<ProductImage> images,List<ProductCategory> categories) {
         mName = name;
         mId = id;
         mDescription = description;
@@ -25,6 +26,15 @@ public class Product {
         mAverageRating = averageRating;
         mRatingCount = ratingCount;
         mImages = images;
+        mCategories=categories;
+    }
+
+    public List<ProductCategory> getCategories() {
+        return mCategories;
+    }
+
+    public void setCategories(List<ProductCategory> categories) {
+        mCategories = categories;
     }
 
     public String getName() {

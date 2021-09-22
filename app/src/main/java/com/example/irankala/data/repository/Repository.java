@@ -36,6 +36,8 @@ public class Repository {
     private Repository(Context context){
         mContext=context;
 
+
+
         Retrofit retrofit= RetrofitInstance.getInstance();
         mIranKalaService=retrofit.create(IIranKalaService.class);
     }
